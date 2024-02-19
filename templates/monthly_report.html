@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monthly Report</title>
+    <!-- Aqui você pode adicionar links para folhas de estilo CSS, se necessário -->
+</head>
+<body>
+    <h1>RELATÓRIO MENSAL DE PRESENÇA</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>NOME</th>
+
+                <th>ENTRADA</th>
+                
+                <th>SAÍDA</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for attendance in attendances %}
+            <tr>
+                <td>{{ attendance.employee.user.username|default_if_none:"No User" }}</td>
+                <td>{{ attendance.check_in }}</td>
+                <td>{{ attendance.check_out }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
